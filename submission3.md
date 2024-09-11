@@ -145,8 +145,8 @@ Output:
 ```
 git status again shows no changes.
 
-Now, let's try hard reset:
+Now, let's try hard reset (two commits backm beacuse I have changed and commited the submission3.md file):
 ```bash
-git reset --hard HEAD~1
+git reset --hard HEAD~2
 git status
 ```
