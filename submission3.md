@@ -87,9 +87,10 @@ Output:
 
 ## Task 2: Practice with Git Reset Command
 I have experienced a beautiful moment of forgetting to commit the submission3.md, 
-while executing hard reset in the this task, so almost written report needs to be rewritten again.
+while executing hard reset in this task, so almost written report needs to be rewritten again.
 I guess, practice gives the best knowledge).
 
+#### Preparation
 New branch was created:
 ```bash
 git checkout -b git-reset-practice
@@ -114,6 +115,8 @@ A series of commits was created:
 
 So, currently, git status does not show any changes in file.txt.
 
+---
+### Soft reset
 Now, try soft reset:
 ```bash
 git reset --soft HEAD~1
@@ -132,7 +135,7 @@ First commit
 Second commit
 Third commit
 ```
-
+---
 Basically, the last 'git commit' command was undone, but the changes are still in the working directory and the index.
 To restore the changes we can simply commit them again:
 ```bash
@@ -143,10 +146,71 @@ Output:
 [git-reset-practice 4bf3718] Third commit
  1 file changed, 0 insertions(+), 0 deletions(-)
 ```
+
 git status again shows no changes.
 
-Now, let's try hard reset:
+---
+### Hard reset
+Now, let's try hard reset (three commits back because I have changed and commited the submission3.md file):
 ```bash
-git reset --hard HEAD~1
+git reset --hard HEAD~3
 git status
 ```
+
+Output:
+```
+HEAD is now at 4dfcc78 Second commit
+```
+Git status does not show any changes in file.txt, because the changes from the last three commits were removed from the working directory.
+
+Content of file.txt:
+```
+First commit
+Second commit
+```
+---
+To recover we use reflog:
+```bash
+git reflog
+```
+Output:
+```
+4dfcc78 (HEAD -> git-reset-practice) HEAD@{0}: reset: moving to HEAD~3
+22579c6 HEAD@{1}: commit: lab3: task2 progress
+24cabef HEAD@{2}: cherry-pick: lab3: task2 progress
+4bf3718 HEAD@{3}: checkout: moving from lab3 to git-reset-practice
+d85ddc9 (lab3) HEAD@{4}: commit: lab3: task2 progress
+409a1fa HEAD@{5}: checkout: moving from git-reset-practice to lab3
+4bf3718 HEAD@{6}: commit: Third commit
+4dfcc78 (HEAD -> git-reset-practice) HEAD@{7}: reset: moving to HEAD~1
+46a3c7d HEAD@{8}: commit: Third commit
+4dfcc78 (HEAD -> git-reset-practice) HEAD@{9}: commit: Second commit
+a7b84b9 HEAD@{10}: commit: First commit
+409a1fa HEAD@{11}: checkout: moving from lab3 to git-reset-practice
+409a1fa HEAD@{12}: commit: lab3: task1
+...
+etc.
+```
+Now, move the HEAD back to initial place:
+```bash
+git reset --hard 22579c6
+```
+Output:
+```
+HEAD is now at 22579c6 lab3: task2 progress
+```
+The content of file.txt is the same as it was before resetting, 
+git status does not show any changes on file.txt. 
+And this time, I have also recovered my submission3.md file)
+---
+
+### Reset and reflog operations
+'git reset' allows to "undo" changes in the repository.
+There are three modes of 'git reset':
+- `--soft`: Moves HEAD to the specified commit, but keeps the changes in the working directory and index.
+- `--mixed` (default): Moves HEAD to the specified commit and resets the index, but keeps the changes in the working directory.
+- `--hard`: Moves HEAD to the specified commit and resets the index and working directory.
+--hard is the most dangerous, because it removes all changes from the working directory and, unlike the other modes, cannot be undone with commit or add commands.
+
+'git reflog' is a reference log that records updates to the tips of branches. It is useful for recovering.
+Simply by taking a hash from the reflog, we can move the HEAD to the desired commit, and restore the changes that were lost during hard reset.
