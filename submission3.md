@@ -87,5 +87,66 @@ Output:
 
 ## Task 2: Practice with Git Reset Command
 I have experienced a beautiful moment of forgetting to commit the submission3.md, 
-while executing hard reset in the second task, so almost written report needs to be rewritten again.
+while executing hard reset in the this task, so almost written report needs to be rewritten again.
 I guess, practice gives the best knowledge).
+
+New branch was created:
+```bash
+git checkout -b git-reset-practice
+```
+Output:
+```
+Switched to a new branch 'git-reset-practice'
+```
+
+A series of commits was created:
+```
+[git-reset-practice a7b84b9] First commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file.txt
+
+[git-reset-practice 4dfcc78] Second commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+[git-reset-practice 46a3c7d] Third commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+```
+
+So, currently, git status does not show any changes in file.txt.
+
+Now, try soft reset:
+```bash
+git reset --soft HEAD~1
+git status
+```
+Output:
+```
+On branch git-reset-practice
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file.txt
+```
+And the content of file.txt did not changed:
+```
+First commit
+Second commit
+Third commit
+```
+
+Basically, the last 'git commit' command was undone, but the changes are still in the working directory and the index.
+To restore the changes we can simply commit them again:
+```bash
+git commit -m "Third commit"
+```
+Output:
+```
+[git-reset-practice 4bf3718] Third commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+```
+git status again shows no changes.
+
+Now, let's try hard reset:
+```bash
+git reset --hard HEAD~1
+git status
+```
