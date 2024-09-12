@@ -57,10 +57,7 @@ parent 30433d0d4de51989a5bd0932349b954e673ae719
 author Alexandra Vabnits <aleksandra.vabnits@lemanapro.ru> 1726074614 +0300
 committer Alexandra Vabnits <aleksandra.vabnits@lemanapro.ru> 1726074614 +0300
 gpgsig -----BEGIN SSH SIGNATURE-----
- U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgyDvWOd8ssgvHZk3h6jXmYizaWn
- 3rAvK4PO85ym1KMkIAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
- AAAAQKytlcKOghoyjRGxitXP+9lZZHVpLJwU12aEfpb22IOVftdByY50DstbT2dl54MdF/
- tKuH9hQUPdtRV3gmIAIwA=
+...
  -----END SSH SIGNATURE-----
 
 test commit
