@@ -211,3 +211,5 @@ There are three modes of 'git reset':
 
 'git reflog' is a reference log that records updates to the tips of branches. It is useful for recovering.
 Simply by taking a hash from the reflog, we can move the HEAD to the desired commit, and restore the changes that were lost during hard reset.
+
+Note: Sorry for unverified commits, I decided to configure a new signing key for my work account and have forgotten to swap it back.
