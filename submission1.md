@@ -6,6 +6,7 @@ and GitHub will also display a 'Verified' tag in the repo. If the author is not 
 GitHub will allow to commit, but will state the commit is "Unverified".
 
 # Task 2: Merge Strategies in Git
+## Comparing merge strategies
 1. Standard Merge\
 All commits from the source branch are added to the target branch in a merge commit.
 This strategy is often preferred in collaborative environments. 
@@ -37,3 +38,5 @@ Basically, all commits from the source branch are added one by one to the target
     - Cons: 
       - It is not possible to save the moment when a new feature was added to the main branch.
       - Thus, it is not straightforward to revert a change from rebasing.
+## Repository settings
+![Merge strategies](data/merge_strategies.png)
