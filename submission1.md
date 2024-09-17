@@ -38,5 +38,6 @@ Basically, all commits from the source branch are added one by one to the target
     - Cons: 
       - It is not possible to save the moment when a new feature was added to the main branch.
       - Thus, it is not straightforward to revert a change from rebasing.
+Check ssh
 ## Repository settings
 ![Merge strategies](data/merge_strategies.png)
