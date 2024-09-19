@@ -15,7 +15,7 @@ graphical.target reached after 4.079s in userspace
 ```shell
 systemd-analyze blame
 ```
-Output: [blame_output.txt](outputs/blame_output.txt])
+Output: [blame_output.txt](outputs/blame_output.txt)
 
 ### 2. Check System Load and Uptime
 ```shell
