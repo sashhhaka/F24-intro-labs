@@ -18,11 +18,11 @@ jobs:
       - name: Gather system information
         run: |
           echo "📄 System Information:"
-          uname -a                      # Gather OS details
-          lscpu                         # Gather CPU details
-          free -h                       # Gather memory details
-          df -h                         # Disk space usage
-          ifconfig                      # Network details
-          echo "CPU Load and Usage:"
-          top -b -n1 | head -n 10       # Gather CPU usage
+          echo "---------------------"
+          echo "🐧 OS: $(uname -a)"
+          echo "💾 CPU: $(lscpu)"
+          echo "🖥️ Memory: $(free -h)"
+          echo "🏗️ Disk Space: $(df -h)"
+          echo "🌐 Network: $(ifconfig)"
+          echo "🚦 CPU Load and Usage: $(top -b -n1 | head -n 10)"
       - run: echo "🍏 This job's status is ${{ job.status }}."
