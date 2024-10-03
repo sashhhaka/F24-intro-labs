@@ -15,4 +15,27 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+
+
+      - name: Gather system information
+        run: |
+          echo "📄 System Information:"
+          echo "---------------------"
+          echo "‍💻 Runner:"
+          echo "${{ runner.name }}"
+          echo "${{ runner.os }}"
+          echo "$ImageOS"
+          echo "$ImageVersion"
+          echo "🐧 OS:"
+          echo "$(uname -a)"
+          echo "💾 CPU:"
+          echo "$(lscpu)"
+          echo "🖥️ Memory:"
+          echo "$(free -h)"
+          echo "🏗️ Disk Space:"
+          echo "$(df -h)"
+          echo "🌐 Network:"
+          echo "$(ifconfig)"
+          echo "🚦 CPU Load and Usage:"
+          echo "$(top -b -n1 | head -n 10)"
       - run: echo "🍏 This job's status is ${{ job.status }}."
