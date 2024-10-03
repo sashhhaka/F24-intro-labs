@@ -16,13 +16,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
 
-      - name: GitHub Actions runner OS system information
-        uses: kenchan0130/actions-system-info@v1.3.0
 
       - name: Gather system information
         run: |
           echo "📄 System Information:"
           echo "---------------------"
+          echo "‍💻 Runner OS:"
+          echo "${{ runner.name }}"
           echo "🐧 OS:"
           echo "$(uname -a)"
           echo "💾 CPU:"
