@@ -50,6 +50,7 @@ As it was stated in documentation, this trigger will work only if the workflow f
  - I have merged the branch lab9 into master and a button to trigger the workflow appeared in the Actions section of the repository.
 ![img_4.png](data/9_img_4.png)
 We can also choose the branch from which we want to run the workflow:
+
 ![img_5.png](data/9_img_5.png)
 
 2. **Gather System Information**:
@@ -61,6 +62,7 @@ Then, the following commands are executed:
    - `free -m` - prints information about memory usage;
    - `df -h` - prints information about disk space usage.
  - The output of the step is shown in the logs of the job:
+
 ![img_6.png](data/9_img_6.png)
 
 The whole output of Gathering System Information step:
