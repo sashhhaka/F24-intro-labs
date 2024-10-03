@@ -21,8 +21,10 @@ jobs:
         run: |
           echo "📄 System Information:"
           echo "---------------------"
-          echo "‍💻 Runner OS:"
+          echo "‍💻 Runner:"
           echo "${{ runner.name }}"
+          echo "${{ runner.os }}"
+          echo "${{ runner.version }}"
           echo "🐧 OS:"
           echo "$(uname -a)"
           echo "💾 CPU:"
